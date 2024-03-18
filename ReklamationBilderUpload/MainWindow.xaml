@@ -27,18 +27,20 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Label>Quelle Ordner:</Label>
-            <TextBox x:Name="sourceDir" MinWidth="240" FontSize="16" Margin="10 0 0 0"  AcceptsTab="False" IsReadOnly="True" />
+            <TextBox x:Name="sourceDir" Width="240" FontSize="16" Margin="10 0 0 0"  AcceptsTab="False" IsReadOnly="True" />
             <Button Content="Ändern" FontSize="16" HorizontalAlignment="Right" Margin="10" TabIndex="1" VerticalAlignment="Center" Width="100" Height="34" Click="quellePfadUpdate_click"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             <Label>Ziel Ordner:</Label>
-            <TextBox x:Name="destinationDir" MinWidth="240" FontSize="16" Margin="10 0 0 0" AcceptsTab="False" IsReadOnly="True" />
-          
+            <TextBox x:Name="destinationDir" Width="240" FontSize="16" Margin="10 0 0 0" AcceptsTab="False" IsReadOnly="True" />
             <Button Content="Ändern" FontSize="16" HorizontalAlignment="Right" Margin="10" TabIndex="2" VerticalAlignment="Center" Width="100" Height="34" Click="zielPfadUpdate_click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Button Content="Upload" FontSize="16" HorizontalAlignment="Center" Margin="10" TabIndex="1" VerticalAlignment="Center" Width="100" Height="34" Click="uploadPicture_click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <ProgressBar  x:Name="magicBar" FontSize="16" HorizontalAlignment="Center" Margin="10"  VerticalAlignment="Center" Width="250" Height="34" Visibility="Collapsed" Value="50"/>
         </StackPanel>
 
     </Grid>

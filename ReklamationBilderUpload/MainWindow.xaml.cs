@@ -22,6 +22,9 @@ namespace ReklamationBilderUpload
         public MainWindow()
         {
             InitializeComponent();
+            destinationDir.Text = LoadDirectory("destinationDir");
+            sourceDir.Text = LoadDirectory("sourceDir");
+           
         }
 
 
@@ -44,8 +47,13 @@ namespace ReklamationBilderUpload
 
         private void uploadPicture_click(object sender, RoutedEventArgs e)
         {
+            this.Visibility = Visibility.Collapsed;
+            
             PictureMover move = new PictureMover(sourceDir.Text, destinationDir.Text);
             move.MoveEverything();
+            System.Windows.MessageBox.Show("Alle Bilder wurden erfolgreich bewegt");
+            this.Visibility=Visibility.Visible;
+            magicBar.Visibility=Visibility.Collapsed;
         }
 
         private void SaveDirectory(string key, string value)
@@ -55,6 +63,19 @@ namespace ReklamationBilderUpload
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("appSettings");
             
+        }
+        private string LoadDirectory(string key)
+        {
+           string output = ConfigurationManager.AppSettings[key];
+
+            if (output == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return output;
+            }
         }
     }
 }
